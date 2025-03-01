@@ -1,15 +1,13 @@
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+    const fadeElements = document.querySelectorAll(".fade-in");
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+            }
+        });
+    }, { threshold: 0.5 });
 
-    if (!name || !email || !message) {
-        alert("Please fill out all fields.");
-        return;
-    }
-
-    alert("Message sent successfully!");
-    document.getElementById('contact-form').reset(); // Reset form after submission
+    fadeElements.forEach(el => observer.observe(el));
 });
