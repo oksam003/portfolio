@@ -3,7 +3,7 @@
 body {
     margin: 0;
     font-family: 'Orbitron', sans-serif;
-    background: url('background.jpg') no-repeat center center / cover;
+
     position: relative;
     background-size: cover;
     color: rgb(31, 8, 8);
