@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Software Developer Portfolio - A futuristic portfolio showcasing software development skills and projects">
+    <meta name="keywords" content="software developer, portfolio, web developer, typescript, react, next.js">
+    <meta name="author" content="Software Developer">
+    <title>Sammy Portfolio</title>
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Tailwind CSS CDN (for static HTML version) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: #ffffff;
+            background: linear-gradient(to bottom, transparent, #0a0a14) #000000;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        .glass-effect {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 255, 0.1);
+        }
+
+        .neon-text {
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #22d3ee, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff; }
+            100% { box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff; }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        /* Grid pattern overlay */
+        .grid-overlay {
+            position: fixed;
+            inset: 0;
+            opacity: 0.05;
+            pointer-events: none;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#e0f7fa',
+                            100: '#b2ebf2',
+                            200: '#80deea',
+                            300: '#4dd0e1',
+                            400: '#26c6da',
+                            500: '#00bcd4',
+                            600: '#00acc1',
+                            700: '#0097a7',
+                            800: '#00838f',
+                            900: '#006064',
+                        },
+                        neon: {
+                            cyan: '#00ffff',
+                            blue: '#0080ff',
+                            purple: '#8000ff',
+                            green: '#00ff80',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen bg-black text-white relative">
+    <!-- Grid pattern overlay -->
+    <div class="grid-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-effect py-6 transition-all duration-300">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-2xl font-bold gradient-text">
+                {'<AXL/>'}
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-cyan-400 hover:text-cyan-300 transition-colors">Home</a>
+                <a href="#about" class="text-gray-300 hover:text-cyan-400 transition-colors">About</a>
+                <a href="#skills" class="text-gray-300 hover:text-cyan-400 transition-colors">Skills</a>
+                <a href="#projects" class="text-gray-300 hover:text-cyan-400 transition-colors">Projects</a>
+                <a href="#contact" class="text-gray-300 hover:text-cyan-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative pt-20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="space-y-6">
+                <div class="inline-block mb-4 animate-float">
+                    <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-cyan-400 via-purple-500 to-blue-600 p-1">
+                        <div class="w-full h-full rounded-full bg-black flex items-center justify-center text-4xl">
+                            👨‍💻
+                        </div>
+                    </div>
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-bold mb-4">
+                    <span class="gradient-text">Hi, I'm a</span><br>
+                    <span class="text-cyan-400">Software Developer</span>
+                </h1>
+
+                <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto">
+                    Crafting digital experiences with code and creativity
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-4 mt-8">
+                    <a href="#projects" class="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 transform hover:scale-105">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="px-8 py-3 border-2 border-cyan-400 rounded-lg font-semibold hover:bg-cyan-400/10 transition-all duration-300 transform hover:scale-105">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 relative">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-center">
+                <span class="gradient-text">About Me</span>
+            </h2>
+
+            <div class="mt-12 grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-gray-300 text-lg leading-relaxed">
+                    <p>
+                        I'm a passionate software developer with a love for creating elegant solutions
+                        to complex problems. My journey in tech has been driven by curiosity and a
+                        desire to build things that make a difference.
+                    </p>
+                    <p>
+                        I specialize in modern web technologies and enjoy working with cutting-edge
+                        frameworks and tools. When I'm not coding, you'll find me exploring new
+                        technologies, contributing to open-source projects, or sharing knowledge
+                        with the developer community.
+                    </p>
+                    <p>
+                        I believe in writing clean, maintainable code and following best practices
+                        to deliver high-quality software that stands the test of time.
+                    </p>
+                </div>
+
+                <div class="relative">
+                    <div class="glass-effect rounded-lg p-8 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-400">Experience</span>
+                            <span class="text-cyan-400 font-bold text-xl">4+ Years</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-400">Projects Completed</span>
+                            <span class="text-purple-400 font-bold text-xl">30+</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-400">Technologies</span>
+                            <span class="text-blue-400 font-bold text-xl">20+</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-400">Happy Clients</span>
+                            <span class="text-green-400 font-bold text-xl">30+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 relative">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-center">
+                <span class="gradient-text">Skills & Technologies</span>
+            </h2>
+            <p class="text-center text-gray-400 mb-12 text-lg">
+                Technologies I work with to bring ideas to life
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-16">
+                <div class="glass-effect rounded-lg p-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-semibold">TypeScript</span>
+                        <span class="text-cyan-400">90%</span>
+                    </div>
+                    <div class="h-3 bg-gray-800 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="glass-effect rounded-lg p-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-semibold">React</span>
+                        <span class="text-cyan-400">95%</span>
+                    </div>
+                    <div class="h-3 bg-gray-800 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="glass-effect rounded-lg p-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-semibold">Next.js</span>
+                        <span class="text-cyan-400">85%</span>
+                    </div>
+                    <div class="h-3 bg-gray-800 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="glass-effect rounded-lg p-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-semibold">Node.js</span>
+                        <span class="text-cyan-400">80%</span>
+                    </div>
+                    <div class="h-3 bg-gray-800 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-green-500 to-emerald-500 rounded-full" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 relative">
+        <div class="container mx-auto max-w-7xl">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-center">
+                <span class="gradient-text">Featured Projects</span>
+            </h2>
+            <p class="text-center text-gray-400 mb-12 text-lg">
+                A collection of projects I've built with passion and precision
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-effect rounded-lg p-6 group cursor-pointer hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-3xl mb-4">
+                        🛒
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-cyan-400">E-Commerce Platform</h3>
+                    <p class="text-gray-400 mb-4 text-sm">Full-stack e-commerce solution with payment integration.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-cyan-500/10 border border-cyan-500/30 rounded text-xs text-cyan-400">Next.js</span>
+                        <span class="px-2 py-1 bg-cyan-500/10 border border-cyan-500/30 rounded text-xs text-cyan-400">TypeScript</span>
+                    </div>
+                </div>
+                <div class="glass-effect rounded-lg p-6 group cursor-pointer hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-3xl mb-4">
+                        📋
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-cyan-400">Task Management App</h3>
+                    <p class="text-gray-400 mb-4 text-sm">Collaborative task management with real-time updates.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-cyan-500/10 border border-cyan-500/30 rounded text-xs text-cyan-400">React</span>
+                        <span class="px-2 py-1 bg-cyan-500/10 border border-cyan-500/30 rounded text-xs text-cyan-400">Node.js</span>
+                    </div>
+                </div>
+                <div class="glass-effect rounded-lg p-6 group cursor-pointer hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center text-3xl mb-4">
+                        🌤️
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-cyan-400">Weather Dashboard</h3>
+                    <p class="text-gray-400 mb-4 text-sm">Beautiful weather dashboard with location-based forecasts.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-cyan-500/10 border border-cyan-500/30 rounded text-xs text-cyan-400">Next.js</span>
+                        <span class="px-2 py-1 bg-cyan-500/10 border border-cyan-500/30 rounded text-xs text-cyan-400">TypeScript</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 relative">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-center">
+                <span class="gradient-text">Get In Touch</span>
+            </h2>
+            <p class="text-center text-gray-400 mb-12 text-lg">
+                Have a project in mind? Let's work together to bring it to life
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="glass-effect rounded-lg p-8">
+                    <form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you for your message!');">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-3 bg-black/50 border border-cyan-500/30 rounded-lg focus:outline-none focus:border-cyan-400 text-white"
+                                placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 bg-black/50 border border-cyan-500/30 rounded-lg focus:outline-none focus:border-cyan-400 text-white"
+                                placeholder="your.email@example.com">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                            <textarea id="message" name="message" required rows="5"
+                                class="w-full px-4 py-3 bg-black/50 border border-cyan-500/30 rounded-lg focus:outline-none focus:border-cyan-400 text-white resize-none"
+                                placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="glass-effect rounded-lg p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-cyan-400">Let's Connect</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            I'm always open to discussing new projects, creative ideas, or opportunities
+                            to be part of your vision.
+                        </p>
+                        <div class="space-y-4">
+                            <a href="https://github.com/oksam003" target="_blank" class="flex items-center space-x-3 text-gray-300 hover:text-cyan-400 transition-colors">
+                                <span>💻</span>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/samuel-okoosi-12b21825" target="_blank" class="flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-colors">
+                                <span>💼</span>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="Samuelokoosi21@gmail.com" class="flex items-center space-x-3 text-gray-300 hover:text-green-400 transition-colors">
+                                <span>✉️</span>
+                                <span>Email</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-cyan-500/20">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <div class="text-gray-400 text-center md:text-left">
+                    <p>&copy; 2024 Portfolio. Built with Next.js & Tailwind CSS</p>
+                </div>
+                <a href="#home" class="text-gray-400 hover:text-cyan-400 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                    </svg>
+                </a>
+            </div>
+            <div class="mt-8 text-center text-gray-500 text-sm">
+                <p>Designed with ❤️ using cool, calm colors and futuristic aesthetics</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Smooth scroll script -->
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-cyan-400');
+                link.classList.add('text-gray-300');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.remove('text-gray-300');
+                    link.classList.add('text-cyan-400');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
