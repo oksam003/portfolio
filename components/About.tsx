@@ -44,13 +44,13 @@ const About = () => {
           >
             <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
               <p>
-                I'm a passionate software developer with a love for creating elegant solutions
+                I&rsquo;m a passionate software developer with a love for creating elegant solutions
                 to complex problems. My journey in tech has been driven by curiosity and a
                 desire to build things that make a difference.
               </p>
               <p>
                 I specialize in modern web technologies and enjoy working with cutting-edge
-                frameworks and tools. When I'm not coding, you'll find me exploring new
+                frameworks and tools. When I&rsquo;m not coding, you&rsquo;ll find me exploring new
                 technologies, contributing to open-source projects, or sharing knowledge
                 with the developer community.
               </p>

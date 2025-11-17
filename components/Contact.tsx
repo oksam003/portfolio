@@ -14,7 +14,7 @@ const Contact = () => {
     e.preventDefault()
     // Handle form submission here
     console.log('Form submitted:', formData)
-    alert('Thank you for your message! I\'ll get back to you soon.')
+    alert('Thank you for your message! I&rsquo;ll get back to you soon.')
     setFormData({ name: '', email: '', message: '' })
   }
 
@@ -46,7 +46,7 @@ const Contact = () => {
             </span>
           </h2>
           <p className="text-center text-gray-400 mb-12 text-lg">
-            Have a project in mind? Let's work together to bring it to life
+            Have a project in mind? Let&rsquo;s work together to bring it to life
           </p>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -127,9 +127,9 @@ const Contact = () => {
               className="space-y-8"
             >
               <div className="glass-effect rounded-lg p-8">
-                <h3 className="text-2xl font-bold mb-6 text-cyan-400">Let's Connect</h3>
+                <h3 className="text-2xl font-bold mb-6 text-cyan-400">Let&rsquo;s Connect</h3>
                 <p className="text-gray-300 mb-6 leading-relaxed">
-                  I'm always open to discussing new projects, creative ideas, or opportunities
+                  I&rsquo;m always open to discussing new projects, creative ideas, or opportunities
                   to be part of your vision. Feel free to reach out through any of the channels below.
                 </p>
 

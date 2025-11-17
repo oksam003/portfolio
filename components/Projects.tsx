@@ -70,7 +70,7 @@ const Projects = () => {
             </span>
           </h2>
           <p className="text-center text-gray-400 mb-12 text-lg">
-            A collection of projects I've built with passion and precision
+            A collection of projects I&rsquo;ve built with passion and precision
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
